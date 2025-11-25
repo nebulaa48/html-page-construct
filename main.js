@@ -1,3 +1,3 @@
-import { init } from "./scripts/script";
+import { init } from "./scripts/script.js";
 
 init();

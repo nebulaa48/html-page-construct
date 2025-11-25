@@ -1,5 +1,5 @@
 {
-  "name": "html-page-construct",
+  "name": "html-page-construct-v2",
   "version": "0.0.1",
   "description": "HTML Single Page Generation with JSON Config Files",
   "main": "main.js",
