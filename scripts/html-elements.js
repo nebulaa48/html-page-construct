@@ -85,10 +85,10 @@ export const elements = {
   image: (id, path, size, alt, classList) => {
     const img = document.createElement("img");
     img.id = id || "";
-    img.src = "../images/" + path;
+    img.src = path ? "../images/" + path : "";
     img.style.height = size;
     img.style.width = size;
-    img.alt = alt;
+    img.alt = alt || "";
     if (classList) img.classList.add(...classList);
 
     return img;

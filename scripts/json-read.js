@@ -10,6 +10,8 @@ async function _read(path) {
     const data = await jsonResponse.json();
     return data;
   } catch (e) {
-    console.error("Fichier JSON non trouvé...", e);
+    console.error(
+      "========= HTML PAGE CONSTRUCT ========== \n Fichier JSON non trouvé..."
+    );
   }
 }

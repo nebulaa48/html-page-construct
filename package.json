@@ -1,0 +1,25 @@
+{
+  "name": "html-page-construct",
+  "version": "0.0.1",
+  "description": "HTML Single Page Generation with JSON Config Files",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nebulaa48/html-page-construct"
+  },
+  "keywords": [
+    "HTML",
+    "Page",
+    "CSS"
+  ],
+  "author": "Nebulaa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nebulaa48/html-page-construct/issues"
+  },
+  "homepage": "https://github.com/nebulaa48/html-page-construct#readme",
+  "type": "module"
+}

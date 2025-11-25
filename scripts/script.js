@@ -1,38 +1,46 @@
 import { elements } from "./html-elements.js";
-import { jsonDatas } from "./jsonRead.js";
+import { jsonDatas } from "./json-read.js";
 
-//---- INITALISATION DU STYLE GLOBAL DE LA PAGE -----//
-document.body.style.background = jsonDatas.globalStyle.background || "white";
-if (jsonDatas.globalStyle.backgroundImg) {
-  document.body.style.backgroundImage = `url(${
-    "../images/" + jsonDatas.globalStyle.backgroundImg
-  })`;
-  document.body.style.backgroundPosition = "center";
-  document.body.style.backgroundRepeat = "no-repeat";
-  document.body.style.backgroundSize = "cover";
-}
-document.body.style.color = jsonDatas.globalStyle.textColor || "black";
-/// ------------------------- ///
+export function init() {
+  console.info("========= HTML PAGE CONSTRUCT ==========");
+  console.info("====== GENERATION DE LA PAGE HTML =========");
+  //---- INITALISATION DU STYLE GLOBAL DE LA PAGE -----//
+  document.body.style.background = jsonDatas.globalStyle.background || "white";
+  if (jsonDatas.globalStyle.backgroundImg) {
+    document.body.style.backgroundImage = `url(${
+      "../images/" + jsonDatas.globalStyle.backgroundImg
+    })`;
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+  }
+  document.body.style.color = jsonDatas.globalStyle.textColor || "black";
+  /// ------------------------- ///
 
-/// ---- FOOTER ---- ///
-if (jsonDatas.constants.copyright) {
-  const copyright = document.getElementById("f-copyright");
-  copyright.innerText = jsonDatas.constants.copyright;
-}
+  /// ---- FOOTER ---- ///
+  if (jsonDatas.constants.copyright) {
+    const copyright = document.getElementById("f-copyright");
+    copyright.innerText = jsonDatas.constants.copyright;
+  }
 
-const footerYear = document.getElementById("f-year");
-footerYear.innerText = new Date().getFullYear();
-/// --------------------- ///
+  const footerYear = document.getElementById("f-year");
+  if (footerYear) {
+    footerYear.innerText = new Date().getFullYear();
+  }
+  /// --------------------- ///
 
-const sections = Object.entries(jsonDatas.sections);
+  //Récupération des sections sous forme clé/valeur
+  const sections = Object.entries(jsonDatas.sections);
 
-/// --- GENERATION DU HEADER --- ///
-_generateHeader(sections);
-/// ---------------------------- ///
+  /// --- GENERATION DU HEADER --- ///
+  _generateHeader(sections);
+  /// ---------------------------- ///
 
-// --- GENERATION DES SECTIONS --- //
-for (const section of sections) {
-  _generateSection(section[0], section[1]);
+  // --- GENERATION DES SECTIONS --- //
+  for (const section of sections) {
+    _generateSection(section[0], section[1]);
+  }
+  console.info("====== FIN DE LA GENERATION =========");
 }
 
 /**
@@ -68,10 +76,15 @@ function _generateHeader(sections) {
   const headerNavTitle = elements.link(null, "#home", null, null, [
     "header-nav-title",
   ]);
+
   headerNavTitle.append(
-    elements.div(null, ["title", "pacifico-regular"], "Global Game Jam"),
+    elements.div(
+      null,
+      ["title", "pacifico-regular"],
+      jsonDatas.constants.title || ""
+    ),
     elements.div(null, ["subtitle"]),
-    "Cergy"
+    jsonDatas.constants.subtitle || ""
   );
   /// ---------------- //
 
@@ -79,7 +92,7 @@ function _generateHeader(sections) {
 
   const burgerMenuIcon = elements.image(
     "burger",
-    "icons/icons8-menu-white.png",
+    jsonDatas.constants.burgerMenuIcon,
     "30px"
   ); //Création d'un bouton pour le burger menu
 
@@ -141,7 +154,10 @@ function _generateSection(id, config) {
 
   if (content) {
     section.append(content); //Ajout du contenu de la section à l'élément section
-    console.log("Section générée ->", id);
+    console.log(
+      "========= HTML PAGE CONSTRUCT ========== \n Section générée ->",
+      id
+    );
 
     //Ajout d'un séparateur si renseigné dans la config
     if (config.separator)
@@ -150,7 +166,11 @@ function _generateSection(id, config) {
     //Ajout de la section générée dans le body de la page
     document.body.append(section);
   } else {
-    console.log("Section non générée ->", id, "- Aucun contenu trouvé");
+    console.log(
+      "========= HTML PAGE CONSTRUCT ========== \n Section non générée ->",
+      id,
+      "- Aucun contenu trouvé"
+    );
   }
 }
 /**
