@@ -1,0 +1,241 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+img {
+  object-fit: contain;
+}
+
+section {
+  min-height: 100vh;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section h1 {
+  border: 1px solid var( --primary);
+  border-radius: 20px;
+  padding: 1rem;
+  width: fit-content;
+
+  margin-top: 0;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-content {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: calc(100vh - 60px - 30px - 1rem - 1rem);
+
+  padding-top: calc(60px + 1rem);
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.separator {
+  height: 1px;
+  width: 40%;
+  border-top: 1px solid white;
+  margin: 0 auto;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-line {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.container-line > * {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  height: fit-content;
+}
+.container-line > :last-child {
+  margin-right: 0;
+}
+
+.link-btn {
+  border: 1px solid var( --primary);
+  padding: 10px;
+  border-radius: 5px;
+
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.link-btn:hover {
+  color: black !important;
+  background-color: var( --primary);
+}
+
+.link-btn:last-child {
+  margin-right: 0;
+}
+
+form {
+  background-color: var(--black-02);
+  padding: 1rem;
+
+  border-radius: 10px;
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  max-width: 40rem;
+}
+
+form input,
+form textarea,
+form button {
+  border: none;
+  background-color: #3a1e698a;
+  border-radius: 5px;
+  padding: 5px 10px;
+
+  color: white;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: rgb(255, 255, 255);
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-style: italic;
+}
+
+form input {
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+form .form-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+form .form-group input {
+  flex: 1;
+}
+
+form .form-group input:first-child {
+  margin-right: 20px;
+}
+
+form textarea {
+  flex: 1;
+  resize: none;
+}
+
+form button {
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+  height: 50px;
+}
+
+form button:hover {
+  cursor: pointer;
+  background-color: #3a1e69;
+}
+
+@media (max-width: 470px) {
+  form .form-group input:first-child {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 460px) {
+  form .form-group input:first-child {
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 448px) {
+  form .form-group input:first-child {
+    margin-right: 0;
+  }
+}
+
+footer {
+  z-index: 2000;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  background-color: var(--black-08);
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+footer .copyright {
+  font-size: 0.8rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.pixel-corner {
+  --n: 3 !important;
+  --s: 16px !important;
+  --w: 180px !important;
+}
+.wavy-box {
+  --w: 200px !important;
+  margin: 10px 0;
+  background: var( --primary) !important;
+}
+
+.wavy-line {
+  --s: 10px !important;
+  --b: 2px !important;
+  --m: 1 !important;
+
+  margin: 10px 0;
+
+  background: var( --primary) !important;
+}
+
+.rounded-dashes {
+  --s: 4px !important;
+  --c: var( --primary) !important;
+}
+
+#loading {
+  z-index: 4000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+
+  background-color: var( --primary);
+}

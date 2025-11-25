@@ -1,0 +1,163 @@
+header {
+  z-index: 2000;
+  top: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.quick-access-sign-in {
+  margin-left: 10px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.header-content {
+  display: flex;
+
+  height: 60px;
+  padding: 0 1rem;
+
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: var(--black-08);
+}
+
+.header-nav {
+  height: 100%;
+  display: flex;
+}
+
+.header-nav-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 2rem;
+
+  white-space: nowrap;
+
+  transition: color 0.2s ease-in-out;
+}
+
+.header-nav-title:hover {
+  color: transparent;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 193, 80, 1) 0%,
+    rgba(58, 30, 105, 1) 46%,
+    rgba(0, 18, 50, 1) 100%
+  );
+  background-clip: text;
+}
+
+.header-nav-title .title {
+  font-size: 20px;
+}
+
+.header-nav-title .sub-title {
+  font-size: 12px;
+}
+
+nav ul {
+  height: 100%;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul,
+nav ul li {
+  display: inline-flex;
+}
+
+nav ul li {
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 100%;
+}
+
+nav ul a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+nav ul li:hover {
+  background-color: var( --primary-08) !important;
+}
+
+nav ul li:hover a {
+  color: black !important;
+}
+
+#burger {
+  display: none;
+  align-self: center;
+}
+
+nav.burger-menu {
+  z-index: 3000;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+}
+nav.burger-menu ul,
+nav.burger-menu ul li {
+  display: block;
+  height: 60px;
+}
+nav.burger-menu ul li {
+  background-color: var(--black-08);
+}
+
+@media (max-width: 920px) {
+  .quick-access-sign-in {
+    position: absolute;
+    top: 60px;
+    right: 0;
+
+    margin: 1rem;
+
+    border-radius: 10px;
+
+    padding: 10px;
+
+    background-color: var(--black-08);
+  }
+}
+
+
+@media (max-width: 670px) {
+  nav {
+    display: none;
+  }
+
+  .quick-access-sign-in {
+    position: initial;
+
+    margin: 10px;
+    border-radius: 0;
+    padding: 0;
+    background-color: transparent;
+
+    font-size: 0.8rem;
+
+    text-underline-offset: unset !important;
+  }
+
+  #burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+  }
+}

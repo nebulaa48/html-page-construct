@@ -1,0 +1,11 @@
+:root {
+  --primary: rgb(255, 193, 80);
+  --primary-08: rgba(255, 193, 80, 0.8);
+  --secondary: rgb(58, 30, 105);
+
+  --warning: red;
+  
+  --dark-blue: rgb(0, 18, 50);
+  --black-08: rgba(0, 0, 0, 0.8);
+  --black-02: rgba(0, 0, 0, 0.2);
+}

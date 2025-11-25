@@ -1,0 +1,22 @@
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.flip {
+  animation-name: flip;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}

@@ -1,0 +1,44 @@
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  color: inherit;
+}
+
+.info-text {
+  font-size: 14px;
+  font-style: italic;
+}
+.warning-text {
+  color: var( --warning);
+}
+.highlight-text {
+  color: var( --primary);
+}
+
+.link.highlight-text {
+  text-decoration: underline var( --primary);
+  text-underline-offset: 8px;
+}
+.link:hover {
+  color: var( --primary);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.text-size-l {
+  font-size: 1.5rem;
+}
+
+.text-start{
+  text-align: start;
+}
+
+.text-justify{
+  text-align: justify;
+}

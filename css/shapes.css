@@ -1,0 +1,99 @@
+.pentagon {
+  position: relative;
+  width: 54px;
+  box-sizing: content-box;
+  border-width: 50px 18px 0;
+  border-style: solid;
+  border-color: red transparent;
+}
+.pentagon:before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -85px;
+  left: -18px;
+  border-width: 0 45px 35px;
+  border-style: solid;
+  border-color: transparent transparent red;
+}
+
+.wavy-box {
+  --s: 10px; /* control the size of the wave */
+  --w: 100px; /* preferred  width */
+
+  width: round(var(--w), 4 * var(--s));
+  aspect-ratio: 1;
+  padding: var(--s);
+  border: var(--s) solid #0000;
+  box-sizing: border-box;
+  background: var(--primary);
+  border-radius: calc(3.5 * var(--s)); /* for the image */
+  mask: radial-gradient(calc(sqrt(2) * var(--s)), #000 calc(100% - 1px), #0000),
+    conic-gradient(#000 0 0) content-box,
+    radial-gradient(calc(sqrt(2) * var(--s)), #0000 100%, #000 calc(100% + 1px))
+      var(--s) var(--s) padding-box;
+  mask-size: calc(var(--s) * 4) calc(var(--s) * 4);
+}
+
+.pixel-corner {
+  --n: 5; /* the granularity */
+  --s: 12px; /* control the pixel size */
+  --w: 280px; /* the image size */
+
+  width: calc(round(var(--w), var(--s)) + var(--s) / 2);
+  aspect-ratio: 1;
+  background: var(--primary);
+  --_m: #0000 calc((var(--s) * (var(--n) + 0.5)) / sqrt(2)),
+    #000 0 calc(100% - (var(--s) * (var(--n) + 0.5)) / sqrt(2)), #0000 0;
+  clip-path: polygon(
+    50% calc(var(--s) * var(--n) - 50%),
+    calc(150% - var(--s) * var(--n)) 50%,
+    50% calc(150% - var(--s) * var(--n)),
+    calc(var(--s) * var(--n) - 50%) 50%
+  );
+  mask: repeating-conic-gradient(#0000 0 25%, #000 0 50%) 0 0 / var(--s)
+      var(--s),
+    linear-gradient(-45deg, var(--_m)) intersect,
+    linear-gradient(45deg, var(--_m));
+}
+
+.wavy-line {
+  --s: 44px; /* size of the wave */
+  --b: 16px; /* thickness of the line */
+  --m: 0.4; /* curvature of the wave [0 2] */
+  
+  background: var(--primary);
+  --R: calc(var(--s)*sqrt(var(--m)*var(--m) + 1) + var(--b)/2);
+  height: calc(2*var(--R));
+  width: 100%;
+  --_g: #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
+  mask:
+    radial-gradient(var(--R) at left 50% bottom calc(-1*var(--m)*var(--s)), var(--_g)) 
+     calc(50% - 2*var(--s)) calc(50% - var(--s)/2 - var(--b)/2)/calc(4*var(--s)) calc(var(--s) + var(--b)) repeat-x,
+    radial-gradient(var(--R) at left 50% top calc(-1*var(--m)*var(--s)),var(--_g)) 
+     50% calc(50% + var(--s)/2 + var(--b)/2)/calc(4*var(--s)) calc(var(--s) + var(--b)) repeat-x;
+}
+
+.rounded-dashes {
+  --s: 15px;    /* control the size */
+  --c: var(--primary) !important;; /* the color */
+  
+  height: var(--s);
+  width: 100%;
+  --_g: var(--s) top 50%,var(--c) calc(100% - 1px),#0000;
+  background: 0/calc(4*var(--s)) space no-repeat;
+  background-image: 
+   radial-gradient(circle closest-side at left  var(--_g)),   
+   radial-gradient(circle closest-side at right var(--_g)),   
+   linear-gradient(90deg,#0000 25%,var(--c) 0 75%,#0000 0);
+}
+
+.pin {
+  height: 200px; /* control the size */
+  aspect-ratio: 2/3;
+  mask: 
+    conic-gradient(from -30deg at bottom,#0000,#000 1deg 59deg,#0000 60deg) bottom/100% 50% no-repeat, 
+    radial-gradient(circle at 50% calc(100% / 3),#0000 21.5%,#000 22% 44%,#0000 44.5%);
+  background: #ec1a23;
+}
