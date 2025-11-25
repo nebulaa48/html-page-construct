@@ -77,7 +77,17 @@ export const elements = {
   },
   linkImage: (id, href, label, imagePath, imageSize, classList) => {
     const link = elements.link(id, href);
-    link.append(elements.image(id ? id+"-img" : null, imagePath, imageSize, label, classList));
+    link.style.height = imageSize;
+    link.style.width = imageSize;
+    link.append(
+      elements.image(
+        id ? id + "-img" : null,
+        imagePath,
+        "100%",
+        label,
+        classList
+      )
+    );
 
     return link;
   },
@@ -137,6 +147,7 @@ export const elements = {
     iframe.src = src;
 
     iframe.style.border = "none";
+    iframe.style.width = "100%"
 
     iframe.allowTransparency = true;
     iframe.onload = window.addEventListener("message", function (e) {
@@ -166,7 +177,7 @@ export const elements = {
 
     if (width) card.style.width = width;
 
-    if (icon) card.append(elements.image(null, "icons/" + icon, "60px"));
+    if (icon) card.append(elements.image(null, "icons/" + icon, "8vh"));
 
     card.append(
       elements.h2Title(title),

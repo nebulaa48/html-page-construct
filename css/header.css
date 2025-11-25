@@ -8,13 +8,12 @@ header {
 .quick-access-sign-in {
   margin-left: 10px;
   text-align: center;
-  font-size: 1rem;
 }
 
 .header-content {
   display: flex;
 
-  height: 60px;
+  height: var(--header-height);
   padding: 0 1rem;
 
   align-items: center;
@@ -53,11 +52,11 @@ header {
 }
 
 .header-nav-title .title {
-  font-size: 20px;
+  font-size: 3vh;
 }
 
-.header-nav-title .sub-title {
-  font-size: 12px;
+.header-nav-title .subtitle {
+  font-size: 2vh;
 }
 
 nav ul {
@@ -105,14 +104,14 @@ nav ul li:hover a {
 nav.burger-menu {
   z-index: 3000;
   position: absolute;
-  top: 60px;
+  top: var(--header-height);
   left: 0;
   width: 100%;
 }
 nav.burger-menu ul,
 nav.burger-menu ul li {
   display: block;
-  height: 60px;
+  height: var(--header-height);
 }
 nav.burger-menu ul li {
   background-color: var(--black-08);
@@ -121,7 +120,7 @@ nav.burger-menu ul li {
 @media (max-width: 920px) {
   .quick-access-sign-in {
     position: absolute;
-    top: 60px;
+    top: var(--header-height);
     right: 0;
 
     margin: 1rem;

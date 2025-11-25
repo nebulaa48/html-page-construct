@@ -8,4 +8,7 @@
   --dark-blue: rgb(0, 18, 50);
   --black-08: rgba(0, 0, 0, 0.8);
   --black-02: rgba(0, 0, 0, 0.2);
+
+  --header-height : 8vh;
+  --footer-height : 4vh;
 }

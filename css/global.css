@@ -5,6 +5,8 @@ html {
 body {
   overflow-x: hidden;
   margin: 0;
+
+  font-size: 2.5vh;
 }
 
 img {
@@ -20,27 +22,39 @@ section {
 }
 
 section h1 {
-  border: 1px solid var( --primary);
+  border: 1px solid var(--primary);
   border-radius: 20px;
-  padding: 1rem;
+  padding: 2rem;
   width: fit-content;
-
   margin-top: 0;
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
+  font-size: 5vh;
+}
+
+section h2 {
+  font-size: 3.5vh;
+}
+
+section h3 {
+  font-size: 3vh;
 }
 
 .section-content {
+  --y-padding: 2rem;
+
   text-align: center;
 
   display: flex;
   flex-direction: column;
 
-  min-height: calc(100vh - 60px - 30px - 1rem - 1rem);
+  min-height: calc(
+    100vh - calc(var(--header-height) + var(--footer-height) + var(--y-padding))
+  );
 
-  padding-top: calc(60px + 1rem);
-  padding-bottom: 1rem;
+  padding-top: calc(var(--header-height) + calc(var(--y-padding) / 2));
+  padding-bottom: calc(var(--y-padding) / 2);
   padding-left: 2rem;
   padding-right: 2rem;
 }
@@ -79,21 +93,23 @@ section h1 {
 }
 
 .link-btn {
-  border: 1px solid var( --primary);
-  padding: 10px;
-  border-radius: 5px;
-
+  border: 1px solid var(--primary);
+  padding: 5vh;
+  border-radius: 15px;
   margin-bottom: 10px;
   margin-right: 10px;
 }
 
 .link-btn:hover {
   color: black !important;
-  background-color: var( --primary);
+  background-color: var(--primary);
 }
 
 .link-btn:last-child {
   margin-right: 0;
+}
+.form-container {
+  align-items: center;
 }
 
 form {
@@ -106,7 +122,7 @@ form {
   display: flex;
   flex-direction: column;
 
-  max-width: 40rem;
+  width: 40vw;
 }
 
 form input,
@@ -117,6 +133,8 @@ form button {
   border-radius: 5px;
   padding: 5px 10px;
 
+  font-size: 2vh;
+
   color: white;
 }
 
@@ -126,10 +144,11 @@ form textarea::placeholder {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   font-style: italic;
+  font-size: 2vh;
 }
 
 form input {
-  height: 30px;
+  height: 5vh;
   margin-bottom: 10px;
 }
 
@@ -155,7 +174,8 @@ form textarea {
 form button {
   font-family: "Montserrat", sans-serif;
   margin-top: 10px;
-  height: 50px;
+  height: 8vh;
+  font-size: 2vh;
 }
 
 form button:hover {
@@ -190,7 +210,7 @@ footer {
 
 .footer-content {
   background-color: var(--black-08);
-  height: 30px;
+  height: var(--footer-height);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,20 +218,20 @@ footer {
 }
 
 footer .copyright {
-  font-size: 0.8rem;
+  font-size: 2vh;
   font-style: italic;
   text-align: center;
 }
 
 .pixel-corner {
-  --n: 3 !important;
-  --s: 16px !important;
-  --w: 180px !important;
+  --n: 2 !important;
+  --s: 25px !important;
+  --w: 24vh !important;
 }
 .wavy-box {
   --w: 200px !important;
   margin: 10px 0;
-  background: var( --primary) !important;
+  background: var(--primary) !important;
 }
 
 .wavy-line {
@@ -221,12 +241,12 @@ footer .copyright {
 
   margin: 10px 0;
 
-  background: var( --primary) !important;
+  background: var(--primary) !important;
 }
 
 .rounded-dashes {
   --s: 4px !important;
-  --c: var( --primary) !important;
+  --c: var(--primary) !important;
 }
 
 #loading {
@@ -237,5 +257,5 @@ footer .copyright {
   height: 100vh;
   width: 100%;
 
-  background-color: var( --primary);
+  background-color: var(--primary);
 }

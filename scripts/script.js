@@ -83,8 +83,7 @@ function _generateHeader(sections) {
       ["title", "pacifico-regular"],
       jsonDatas.constants.title || ""
     ),
-    elements.div(null, ["subtitle"]),
-    jsonDatas.constants.subtitle || ""
+    elements.div(null, ["subtitle"], jsonDatas.constants.subtitle || "")
   );
   /// ---------------- //
 
@@ -272,7 +271,7 @@ function _generateElement(parent, rawType, content) {
 
     //Manipulation des éléments de type formulaire
     if (type === "form") {
-      const formContainer = elements.div(null, ["container-line"]);
+      const formContainer = elements.div(null, ["form-container", "container"]);
       const form = elements.form("");
       formContainer.append(_generateElements(form, content));
 
