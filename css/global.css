@@ -183,7 +183,28 @@ form button:hover {
   background-color: #3a1e69;
 }
 
+@media (max-width: 1400px) {
+  form {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  form {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 900px) {
+  form {
+    width: 90vw;
+  }
+}
+
 @media (max-width: 470px) {
+  form {
+    width: 80vw;
+  }
   form .form-group input:first-child {
     margin-right: 10px;
   }
