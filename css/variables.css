@@ -9,6 +9,6 @@
   --black-08: rgba(0, 0, 0, 0.8);
   --black-02: rgba(0, 0, 0, 0.2);
 
-  --header-height : 8vh;
-  --footer-height : 4vh;
+  --header-height : 60px;
+  --footer-height : 40px;
 }

@@ -52,11 +52,11 @@ header {
 }
 
 .header-nav-title .title {
-  font-size: 3vh;
+  font-size: 20px;
 }
 
 .header-nav-title .subtitle {
-  font-size: 2vh;
+  font-size: 15px;
 }
 
 nav ul {

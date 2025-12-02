@@ -6,7 +6,7 @@ body {
   overflow-x: hidden;
   margin: 0;
 
-  font-size: 2.5vh;
+  font-size: 16px;
 }
 
 img {
@@ -24,25 +24,17 @@ section {
 section h1 {
   border: 1px solid var(--primary);
   border-radius: 20px;
-  padding: 2rem;
+  padding: 1rem;
   width: fit-content;
   margin-top: 0;
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
-  font-size: 5vh;
-}
-
-section h2 {
-  font-size: 3.5vh;
-}
-
-section h3 {
-  font-size: 3vh;
 }
 
 .section-content {
   --y-padding: 2rem;
+  --x-padding: 4rem;
 
   text-align: center;
 
@@ -55,8 +47,8 @@ section h3 {
 
   padding-top: calc(var(--header-height) + calc(var(--y-padding) / 2));
   padding-bottom: calc(var(--y-padding) / 2);
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: var(--x-padding);
+  padding-right: var(--x-padding);
 }
 .card {
   display: flex;
@@ -94,10 +86,12 @@ section h3 {
 
 .link-btn {
   border: 1px solid var(--primary);
-  padding: 5vh;
-  border-radius: 15px;
+  padding: 3vh;
+  border-radius: 20px;
   margin-bottom: 10px;
-  margin-right: 10px;
+
+  width: 30rem;
+  align-self: center;
 }
 
 .link-btn:hover {
@@ -105,7 +99,11 @@ section h3 {
   background-color: var(--primary);
 }
 
-.link-btn:last-child {
+.container-line > .link-btn {
+  margin-right: 10px;
+}
+
+.container-line > .link-btn:last-child {
   margin-right: 0;
 }
 .form-container {
@@ -133,7 +131,7 @@ form button {
   border-radius: 5px;
   padding: 5px 10px;
 
-  font-size: 2vh;
+  font-size: 16px;
 
   color: white;
 }
@@ -144,7 +142,6 @@ form textarea::placeholder {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   font-style: italic;
-  font-size: 2vh;
 }
 
 form input {
@@ -175,7 +172,7 @@ form button {
   font-family: "Montserrat", sans-serif;
   margin-top: 10px;
   height: 8vh;
-  font-size: 2vh;
+  font-size: 16px;
 }
 
 form button:hover {
@@ -239,20 +236,9 @@ footer {
 }
 
 footer .copyright {
-  font-size: 2vh;
+  font-size: 14px;
   font-style: italic;
   text-align: center;
-}
-
-.pixel-corner {
-  --n: 2 !important;
-  --s: 25px !important;
-  --w: 24vh !important;
-}
-.wavy-box {
-  --w: 200px !important;
-  margin: 10px 0;
-  background: var(--primary) !important;
 }
 
 .wavy-line {
@@ -279,4 +265,39 @@ footer .copyright {
   width: 100%;
 
   background-color: var(--primary);
+}
+
+@media (min-width: 2100px) {
+  .section-content {
+    --x-padding: 10rem;
+    font-size: 20px;
+  }
+}
+@media (min-width: 2500px) {
+  .section-content {
+    --x-padding: 15rem;
+    font-size: 24px;
+  }
+}
+@media (min-width: 3000px) {
+  section {
+    min-height: max-content;
+  }
+  .section-content {
+    min-height: auto;
+  }
+}
+@media (max-width: 800px) {
+  .link-btn {
+    width: fit-content;
+  }
+  .section-content {
+    --x-padding: 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .section-content {
+    --x-padding: 1rem;
+  }
 }
