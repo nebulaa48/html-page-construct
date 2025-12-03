@@ -272,7 +272,7 @@ function _generateElement(parent, rawType, content) {
     //Manipulation des éléments de type formulaire
     if (type === "form") {
       const formContainer = elements.div(null, ["form-container", "container"]);
-      const form = elements.form("");
+      const form = elements.form(content.config.action, content.config.method);
       formContainer.append(_generateElements(form, content));
 
       return formContainer;
@@ -287,15 +287,29 @@ function _generateElement(parent, rawType, content) {
     if (type.includes("input")) {
       const inputType = type.split(".")[1];
 
-      if (inputType === "textarea") return elements.textarea(content);
+      if (inputType === "textarea")
+        return elements.textarea(
+          content.hideLabel ? null : content.label,
+          content.placeholder,
+          content.name
+        );
 
-      return elements.input(inputType, content);
+      return elements.input(
+        inputType,
+        content.hideLabel ? null : content.label,
+        content.placeholder,
+        content.name
+      );
     }
 
     //Manipulation des éléments de type button dans un formulaire
     if (type.includes("button")) {
       const buttonType = type.split(".")[1];
       return elements.button(content, buttonType);
+    }
+
+    if(type === "config" && parent.tagName === "form"){
+      return;
     }
 
     //Création d'éléments en fonction du type et du contenu

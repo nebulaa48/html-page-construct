@@ -155,11 +155,21 @@ form .form-group {
   flex-wrap: wrap;
 }
 
-form .form-group input {
+form .input-label-container {
+  display: flex;
+  flex-direction: column;
+}
+
+form .input-label-container .input-label{
+  font-size: 14px;
+  text-align: start;
+}
+
+form .form-group input, form .form-group .input-label-container {
   flex: 1;
 }
 
-form .form-group input:first-child {
+form .form-group input:first-child, form .form-group .input-label-container:first-child {
   margin-right: 20px;
 }
 

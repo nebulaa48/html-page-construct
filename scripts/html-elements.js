@@ -18,11 +18,12 @@ export const elements = {
     return div;
   },
 
-  span: (id, classList) => {
+  span: (id, classList, content) => {
     const span = document.createElement("span");
 
     if (id) span.id = id;
     if (classList) span.classList.add(...classList);
+    if (content) span.append(content);
 
     return span;
   },
@@ -111,24 +112,49 @@ export const elements = {
     return separator;
   },
 
-  form: (action) => {
+  form: (action, method) => {
     const form = document.createElement("form");
-    form.action = action;
+    if (action) form.action = action;
+    if (method) form.method = method;
 
     return form;
   },
 
-  input: (type, placeholder) => {
+  input: (type, label, placeholder, name) => {
     const input = document.createElement("input");
     input.type = type;
+    input.name = name;
     input.placeholder = placeholder;
+
+    if (label) {
+      const div = elements.div(
+        null,
+        ["input-label-container"],
+        elements.div(null, ["input-label"], label)
+      );
+      div.append(input);
+
+      return div;
+    }
 
     return input;
   },
 
-  textarea: (placeholder) => {
+  textarea: (label, placeholder, name) => {
     const textarea = document.createElement("textarea");
+    textarea.name = name;
     textarea.placeholder = placeholder;
+
+    if (label) {
+      const div = elements.div(
+        null,
+        ["input-label-container"],
+        elements.div(null, ["input-label"], label)
+      );
+      div.append(textarea);
+
+      return div;
+    }
 
     return textarea;
   },
@@ -147,7 +173,7 @@ export const elements = {
     iframe.src = src;
 
     iframe.style.border = "none";
-    iframe.style.width = "100%"
+    iframe.style.width = "100%";
 
     iframe.allowTransparency = true;
     iframe.onload = window.addEventListener("message", function (e) {
